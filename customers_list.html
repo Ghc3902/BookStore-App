@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Customers</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>CustomerID</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>ZipCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in customers %}
+    <tr>
+      <td>{{ c["customerid"] }}</td>
+      <td>{{ c["fullname"] }}</td>
+      <td>{{ c["email"] }}</td>
+      <td>{{ c["phone"] }}</td>
+      <td>{{ c["address"] }}</td>
+      <td>{{ c["city"] }}</td>
+      <td>{{ c["state"] }}</td>
+      <td>{{ c["zipcode"] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
