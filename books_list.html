@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Books List</h2>
+
+<a href="/books/add" class="btn btn-success mb-3">Add Book</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>BookID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for b in books %}
+      <tr>
+        <td>{{ b['bookid'] }}</td>
+        <td>{{ b['title'] }}</td>
+        <td>{{ b['author'] }}</td>
+        <td>{{ b['genre'] }}</td>
+        <td>{{ b['price'] }}</td>
+        <td>{{ b['stock'] }}</td>
+
+        <td>
+          <a href="/books/edit/{{ b['bookid'] }}" class="btn btn-sm btn-warning">Edit</a>
+          <a href="/books/delete/{{ b['bookid'] }}" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
