@@ -1,0 +1,18 @@
+
+#IT WILL DEALS WITH BOOKS DATA
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ action }} Book</h2>
+
+<form method="POST">
+
+  <input name="title" value="{{ book['title'] if book else '' }}" class="form-control mb-2" placeholder="Title">
+  <input name="author" value="{{ book['author'] if book else '' }}" class="form-control mb-2" placeholder="Author">
+  <input name="genre" value="{{ book['genre'] if book else '' }}" class="form-control mb-2" placeholder="Genre">
+  <input name="price" value="{{ book['price'] if book else '' }}" class="form-control mb-2" placeholder="Price">
+  <input name="stock" value="{{ book['stock'] if book else '' }}" class="form-control mb-2" placeholder="Stock">
+
+  <button class="btn btn-primary">{{ action }}</button>
+
+</form>
+{% endblock %}
