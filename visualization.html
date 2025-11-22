@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Data Visualization</h2>
+
+<h4 class="mt-4">📊 Books Stock Chart</h4>
+<canvas id="stockChart" height="120"></canvas>
+
+<h4 class="mt-5">📈 Orders Per Day</h4>
+<canvas id="ordersChart" height="120"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// BOOK STOCK BAR CHART
+const stockCtx = document.getElementById('stockChart');
+new Chart(stockCtx, {
+    type: 'bar',
+    data: {
+        labels: {{ book_labels | tojson }},
+        datasets: [{
+            label: "Stock",
+            data: {{ book_values | tojson }},
+            backgroundColor: "rgba(54,162,235,0.6)"
+        }]
+    }
+});
+
+// ORDERS PER DAY LINE CHART
+const orderCtx = document.getElementById('ordersChart');
+new Chart(orderCtx, {
+    type: 'line',
+    data: {
+        labels: {{ order_labels | tojson }},
+        datasets: [{
+            label: "Orders",
+            data: {{ order_values | tojson }},
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
+            fill: false
+        }]
+    }
+});
+</script>
+
+{% endblock %}
+
